@@ -17,18 +17,17 @@ function handleClickDrink(ev) {
     (cocktail) => cocktail.idDrink === idSelected
   );
 
-    const indexSelectedDrink = favCoctailsData.findIndex(
-      (cocktail) => cocktail.idDrink === idSelected
-    );
+  const indexSelectedDrink = favCoctailsData.findIndex(
+    (cocktail) => cocktail.idDrink === idSelected
+  );
 
-    if (indexSelectedDrink === -1) {
-        favCoctailsData.push(selectedDrink);
-        printFavList(favCoctailsData);
-    } else {
-        favCoctailsData.splice(indexSelectedDrink, 1)
-        printFavList(favCoctailsData);
-    }
-  
+  if (indexSelectedDrink === -1) {
+    favCoctailsData.push(selectedDrink);
+    printFavList(favCoctailsData);
+  } else {
+    favCoctailsData.splice(indexSelectedDrink, 1);
+    printFavList(favCoctailsData);
+  }
 }
 
 function printFavList(favCoctailsData) {
