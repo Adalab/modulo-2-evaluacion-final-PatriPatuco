@@ -47,6 +47,7 @@ function defaultFetch() {
     .then((data) => {
       cocktailsData = data.drinks;
       printList(cocktailsData);
+      console.log(cocktailsData);
     });
 }
 

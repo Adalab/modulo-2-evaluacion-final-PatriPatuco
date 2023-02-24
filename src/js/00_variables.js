@@ -17,5 +17,5 @@ const favList = document.querySelector(".js__fav-list");
 // Cocktails data
 let cocktailsData = [];
 
-// Fav cocktails
-let favCoctailList = [];
+// Fav cocktails data
+let favCoctailsData = [];
