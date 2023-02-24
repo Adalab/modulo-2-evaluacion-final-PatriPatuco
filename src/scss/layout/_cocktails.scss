@@ -1,3 +1,12 @@
 .main {
-    
+    font-family: Roboto;
+    margin: 3rem;
+    display: flex;
+    gap: 15rem;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
 }
