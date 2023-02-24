@@ -9,4 +9,21 @@
         font-weight: bold;
         padding-bottom: 1rem;
     }
+
+    &__drinks {
+        &--item {
+
+        }
+
+
+    }
+}
+
+// Selected cocktails
+.selected{
+    color: rgb(90, 47, 56);
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-style: italic;
+    background-color: rgb(236, 215, 223);
 }
