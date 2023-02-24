@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable quotes */
 /* eslint-disable no-undef */
 /* eslint-disable strict */
@@ -9,20 +10,20 @@ function printList(cocktailsData) {
 
   for (const drink of cocktailsData) {
     const liElement = document.createElement("li");
-    liElement.setAttribute("class", "main__drinks-list--item");
-    liElement.setAttribute("class", "js__drink");
+    liElement.setAttribute("class", "main__drinks-list--item js__drink");
+    liElement.setAttribute("id", drink.idDrink);
     drinksList.appendChild(liElement);
 
     const nameElement = document.createElement("h3");
     const textName = document.createTextNode(drink.strDrink);
     nameElement.appendChild(textName);
-    liElement.setAttribute("class", "main__drinks-list--item--name");
+    nameElement.setAttribute("class", "main__drinks-list--item--name");
     liElement.appendChild(nameElement);
 
     // Add a placeholder image if the cocktail doesn't contain an image
     if (drink.strDrinkThumb) {
       const imgElement = document.createElement("img");
-      liElement.setAttribute("class", "main__drinks-list--item--img");
+      imgElement.setAttribute("class", "main__drinks-list--item--img");
       imgElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
       liElement.appendChild(imgElement);
     } else {
@@ -35,6 +36,8 @@ function printList(cocktailsData) {
       liElement.appendChild(imgElement);
     }
   }
+  // Add the function with the event for each drink clicked
+  selectDrinkEvent();
 }
 
 // Fetch with the default list: margarita
@@ -42,7 +45,6 @@ function defaultFetch() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.drinks);
       cocktailsData = data.drinks;
       printList(cocktailsData);
     });
@@ -53,12 +55,11 @@ defaultFetch();
 // Function for printing the result of input value search
 function inputFetch() {
   const inputValue = inputSearch.value;
-fetch(
+  fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log("kdsljf");
       cocktailsData = data.drinks;
       printList(cocktailsData);
     });
