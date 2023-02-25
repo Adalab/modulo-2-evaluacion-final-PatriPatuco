@@ -4,6 +4,8 @@
 /* eslint-disable strict */
 "use strict";
 
+favCoctailsData = localDrink;
+
 // Print a list with the desired cocktails.
 function printList(cocktailsData) {
   drinksList.innerHTML = "";
@@ -47,7 +49,7 @@ function defaultFetch() {
     .then((data) => {
       cocktailsData = data.drinks;
       printList(cocktailsData);
-      console.log(cocktailsData);
+      printFavList(favCoctailsData);
     });
 }
 
@@ -63,6 +65,7 @@ function inputFetch() {
     .then((data) => {
       cocktailsData = data.drinks;
       printList(cocktailsData);
+      printFavList(favCoctailsData);
     });
 }
 

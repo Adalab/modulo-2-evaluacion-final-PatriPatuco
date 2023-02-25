@@ -19,3 +19,5 @@ let cocktailsData = [];
 
 // Fav cocktails data
 let favCoctailsData = [];
+
+let localDrink = JSON.parse(localStorage.getItem("cocktails"));
