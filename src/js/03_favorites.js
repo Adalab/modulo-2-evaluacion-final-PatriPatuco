@@ -12,21 +12,25 @@ function handleClickDrink(ev) {
 
   const idSelected = ev.currentTarget.id;
 
-  // Check in the cocktails data if id's matches with selected drink and print it in the Favorites list and if we stop selecting it, remove it.
+  // Check in the cocktails data if id's matches with selected drink and print it in the Favorites list and if we stop selecting it, remove it ++ add it to localStorage
   const selectedDrink = cocktailsData.find(
     (cocktail) => cocktail.idDrink === idSelected
   );
-
   const indexSelectedDrink = favCoctailsData.findIndex(
     (cocktail) => cocktail.idDrink === idSelected
   );
 
   if (indexSelectedDrink === -1) {
     favCoctailsData.push(selectedDrink);
+    localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     printFavList(favCoctailsData);
+    console.log("selected item added to local", localDrink);
   } else {
     favCoctailsData.splice(indexSelectedDrink, 1);
+    localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
+    localDrink = JSON.parse(localStorage.getItem("cocktails"));
     printFavList(favCoctailsData);
+    console.log("selected item removed from local", localDrink);
   }
 }
 
