@@ -58,7 +58,6 @@ defaultFetch();
 if (localDrink) {
   favCoctailsData = localDrink;
   printFavList(favCoctailsData);
-  favBtn.classList.add("hidden");
 }
 
 // Fetch with the default list: margarita
