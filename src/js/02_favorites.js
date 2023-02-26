@@ -88,9 +88,9 @@ function handleClickIcon(e) {
   if (indexSelectedFav) {
     favCoctailsData.splice(indexSelectedFav, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
-    /* selectedFav.classList.remove("selected"); */
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
     printFavList(favCoctailsData);
+    printList(cocktailsData);
   } 
 }
 
