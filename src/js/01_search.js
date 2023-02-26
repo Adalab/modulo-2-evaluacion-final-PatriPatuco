@@ -30,6 +30,8 @@ function printList(cocktailsData) {
 
     if (favDrink) {
       liElement.classList.add("selected");
+    } else {
+      liElement.classList.remove("selected");
     }
 
     // Add a placeholder image if the cocktail doesn't contain an image
