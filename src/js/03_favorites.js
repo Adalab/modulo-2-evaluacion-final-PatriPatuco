@@ -9,7 +9,6 @@
 // Add a new class to selected cocktails to highlight them
 function handleClickDrink(ev) {
   ev.currentTarget.classList.toggle("selected");
-
   const idSelected = ev.currentTarget.id;
 
   // Check in the cocktails data if id's matches with selected drink and print it in the Favorites list and if we stop selecting it, remove it ++ add it to localStorage
@@ -23,14 +22,16 @@ function handleClickDrink(ev) {
   if (indexSelectedDrink === -1) {
     favCoctailsData.push(selectedDrink);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
-    printFavList(favCoctailsData);
     console.log("selected item added to local", localDrink);
+    printFavList(favCoctailsData);
+    
   } else {
     favCoctailsData.splice(indexSelectedDrink, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
+     console.log("selected item removed from local", localDrink);
     printFavList(favCoctailsData);
-    console.log("selected item removed from local", localDrink);
+   
   }
 }
 
