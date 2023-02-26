@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable no-undef */
@@ -8,6 +9,7 @@
 
 function printFavList(favCoctailsData) {
   favList.innerHTML = "";
+  favBtn.classList.remove("hidden");
 
   for (const drink of favCoctailsData) {
     const liFavElement = document.createElement("li");
@@ -64,18 +66,19 @@ function handleClickDrink(ev) {
   if (indexSelectedDrink === -1) {
     favCoctailsData.push(selectedDrink);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
-    console.log("selected item added to local", localDrink);
+    console.log("drink added to local", localDrink);
     printFavList(favCoctailsData);
   } else {
     favCoctailsData.splice(indexSelectedDrink, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
-    console.log("selected item removed from local", localDrink);
+    console.log("drink removed from local", localDrink);
     printFavList(favCoctailsData);
   }
+
 }
 
-// Remove cocktail in FAV list (from array and localStorage) if we click in the icon && remove class in cocktail list
+// Remove cocktail in FAV list (from array and localStorage) if we click in the icon. Remove class in cocktail list too
 function handleClickIcon(e) {
   const iconSelected = e.target.id;
   const selectedFav = cocktailsData.find(
@@ -91,7 +94,19 @@ function handleClickIcon(e) {
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
     printFavList(favCoctailsData);
     printList(cocktailsData);
-  } 
+  }
+}
+
+// Delete all the elements in "favCocatilsData" array and all the stored info ++ remove "selected" class in all the "cocktailsData" <li>
+function handleFavBtn (ev) {
+  ev.preventDefault();
+  favCoctailsData = [];
+  localDrink = localStorage.removeItem("cocktails");
+  printFavList(favCoctailsData);
+  favBtn.classList.add("hidden");
+
+  const drinksSelected = document.querySelectorAll(".js__drink");
+  for (const drink of drinksSelected) drink.classList.remove("selected");
 }
 
 // Add an event to all the drinks with the same class: js__drink
@@ -101,10 +116,12 @@ function selectDrinkEvent() {
     drink.addEventListener("click", handleClickDrink);
   }
 }
-
+// Add an event to all the remove icons in the favorites list
 function favIconsEvent() {
   const removeIcon = document.querySelectorAll(".js__remove-fav");
   for (const icon of removeIcon) {
     icon.addEventListener("click", handleClickIcon);
   }
 }
+// Event to delete button in FAV list
+favBtn.addEventListener("click", handleFavBtn);

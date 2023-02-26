@@ -4,8 +4,6 @@
 /* eslint-disable strict */
 "use strict";
 
-favCoctailsData = localDrink;
-
 // Print a list with the desired cocktails.
 function printList(cocktailsData) {
   drinksList.innerHTML = "";
@@ -54,6 +52,15 @@ function printList(cocktailsData) {
   selectDrinkEvent();
 }
 
+defaultFetch();
+
+// Look if there is info in localStorage and print it in favorites list
+if (localDrink) {
+  favCoctailsData = localDrink;
+  printFavList(favCoctailsData);
+  favBtn.classList.add("hidden");
+}
+
 // Fetch with the default list: margarita
 function defaultFetch() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
@@ -61,11 +68,8 @@ function defaultFetch() {
     .then((data) => {
       cocktailsData = data.drinks;
       printList(cocktailsData);
-      printFavList(favCoctailsData);
     });
 }
-
-defaultFetch();
 
 // Function for printing the result of input value search
 function inputFetch() {
