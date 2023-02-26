@@ -22,6 +22,16 @@ function printList(cocktailsData) {
     nameElement.setAttribute("class", "main__drinks-list--item--name");
     liElement.appendChild(nameElement);
 
+    // Add "selected" class to the drink element if id's match in favCoctailsData and drink element of cocktailsData
+    const drinkId = drink.idDrink;
+    const favDrink = favCoctailsData.find(
+      (fav) => fav.idDrink === drinkId
+    );
+
+    if (favDrink) {
+      liElement.classList.add("selected");
+    }
+
     // Add a placeholder image if the cocktail doesn't contain an image
     if (drink.strDrinkThumb) {
       const imgElement = document.createElement("img");
