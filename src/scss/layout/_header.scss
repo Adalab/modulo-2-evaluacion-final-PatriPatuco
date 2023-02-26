@@ -1,10 +1,41 @@
 .header {
-    font-family: Roboto;
-    margin: 3rem;
+  margin: 3rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
 
-    &__title {
-        font-size: 2.5rem;
-        font-weight: bold;
-        padding-bottom: 1rem;
-    }
+  &__title {
+    font-family: $font-logo;
+    color: $color-orange;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+
+  &__search-input {
+    font-family: $font-text;
+    font-size: 1rem;
+    color: black;
+    background-color: #f0eae1;
+    border: 0.1rem $color-orange solid;
+    border-radius: 0.3rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &__search-button {
+    background-color: $color-orange;
+    border: 0.1rem $color-blue solid;
+  }
+
+  &__reset-button{
+    background-color: $color-blue;
+    border: 0.1rem $color-orange solid;
+  }
+
+  .buttons {
+    font-family: $font-text;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    padding: 0.25rem 0.8rem;
+    color: $color-sand;
+  }
 }

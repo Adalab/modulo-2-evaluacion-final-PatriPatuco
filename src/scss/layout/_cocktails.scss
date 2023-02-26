@@ -1,20 +1,27 @@
 .main {
-    font-family: Roboto;
-    margin: 3rem;
+    margin: 6rem 7rem;
     display: flex;
-    gap: 15rem;
+    gap: 10rem;
 
     &__title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        padding-bottom: 1rem;
+        font-family: $font-titles;
+        font-size: 2.3rem;
+        color: $color-orange;
+        border-bottom: 1px solid $color-blue;
+        margin-bottom: 1rem;
+        text-align: center;
     }
 
     &__drinks {
-        &--item {
 
+        &-list {
+            text-align: center;
         }
 
+        &-list--item{
+            padding: 1rem;
+            border-bottom: 1px dashed $color-orange;
+        }
 
     }
 }
