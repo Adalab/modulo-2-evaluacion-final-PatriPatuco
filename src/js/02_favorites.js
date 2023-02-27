@@ -25,24 +25,8 @@ function printFavList(favCoctailsData) {
       const nameFavElement = document.createElement("h3");
       const nameFavText = document.createTextNode(drink.strDrink);
       nameFavElement.appendChild(nameFavText);
-      nameFavElement.setAttribute("class", "main__fav-list--item--name");
+      nameFavElement.setAttribute("class", "main__fav-list--item-name");
       liFavElement.appendChild(nameFavElement);
-
-      // Add a placeholder image if the cocktail doesn't contain an image
-      if (drink.strDrinkThumb) {
-        const imgFavElement = document.createElement("img");
-        imgFavElement.setAttribute("class", "main__fav-list--item--img");
-        imgFavElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
-        liFavElement.appendChild(imgFavElement);
-      } else {
-        const imgFavElement = document.createElement("img");
-        liFavElement.setAttribute("class", "main__fav-list--item--img");
-        imgFavElement.setAttribute(
-          "src",
-          "https://via.placeholder.com/210x295/ffffff/666666/?text=TV"
-        );
-        liFavElement.appendChild(imgFavElement);
-      }
 
       const iconFavElement = document.createElement("i");
       iconFavElement.setAttribute(
@@ -51,6 +35,22 @@ function printFavList(favCoctailsData) {
       );
       iconFavElement.setAttribute("id", drink.idDrink);
       liFavElement.appendChild(iconFavElement);
+
+      // Add a placeholder image if the cocktail doesn't contain an image
+      if (drink.strDrinkThumb) {
+        const imgFavElement = document.createElement("img");
+        imgFavElement.setAttribute("class", "main__fav-list--item-img");
+        imgFavElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
+        liFavElement.appendChild(imgFavElement);
+      } else {
+        const imgFavElement = document.createElement("img");
+        liFavElement.setAttribute("class", "main__fav-list--item-img");
+        imgFavElement.setAttribute(
+          "src",
+          "https://via.placeholder.com/210x295/ffffff/666666/?text=TV"
+        );
+        liFavElement.appendChild(imgFavElement);
+      }
     }
   favIconsEvent();
 }
@@ -97,7 +97,9 @@ function handleClickIcon(e) {
     favCoctailsData.splice(indexSelectedFav, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
-    printFavList(favCoctailsData);
+    printFavList(
+      
+    );
     printList(cocktailsData);
   }
 }
