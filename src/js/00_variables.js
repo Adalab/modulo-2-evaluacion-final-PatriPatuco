@@ -3,6 +3,7 @@
 'use strict';
 
 // Search section
+const formSearch = document.querySelector(".js__search-form");
 const inputSearch = document.querySelector(".js__search-input");
 const btnSearch = document.querySelector(".js__search-button");
 const btnReset = document.querySelector(".js__reset-button");
@@ -21,5 +22,5 @@ let cocktailsData = [];
 // Fav cocktails data
 let favCoctailsData = [];
 
-// Drinks save in localStorage
+// Save drinks in localStorage
 let localDrink = JSON.parse(localStorage.getItem("cocktails"));

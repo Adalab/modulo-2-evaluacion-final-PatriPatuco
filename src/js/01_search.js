@@ -84,22 +84,23 @@ function inputFetch() {
     });
 }
 
-// Listen to click event and show list of cocktails
+// Listen to "submit" and "click" event and show list of cocktails
 function handleBtnSearch(ev) {
   ev.preventDefault();
-  inputFetch();
-}
-
-//btnSearch.addEventListener("click", handleBtnSearch);
-formSearch.addEventListener("submit", handleBtnSearch);
-
-/*
-function handleEnter(ev) {
- /*     ev.preventDefault(); * /
-  if (ev.keyCode === 13/*  && inputSearch === document.activeElement * /) {
+  if (inputSearch.value) {
     inputFetch();
+  } else {
+    defaultFetch();
   }
 }
 
-inputSearch.addEventListener("submit", handleEnter);
-*/
+// Clean the input and show the default list of margaritas
+function handleBtnReset (e) {
+  inputSearch.value = "";
+  e.preventDefault();
+  defaultFetch();
+}
+
+btnSearch.addEventListener("click", handleBtnSearch);
+formSearch.addEventListener("submit", handleBtnSearch);
+btnReset.addEventListener("click", handleBtnReset)
