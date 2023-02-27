@@ -26,7 +26,7 @@ function printList(cocktailsData) {
       (fav) => fav.idDrink === drinkId
     );
 
-    if (favDrink) {
+    if (favDrink || favCoctailsData.lenght === 0) {
       liElement.classList.add("selected");
     } else {
       liElement.classList.remove("selected");
@@ -90,13 +90,16 @@ function handleBtnSearch(ev) {
   inputFetch();
 }
 
-btnSearch.addEventListener("click", handleBtnSearch);
+//btnSearch.addEventListener("click", handleBtnSearch);
+formSearch.addEventListener("submit", handleBtnSearch);
 
-/* function handleEnter(ev) {
-     ev.preventDefault();
-  if (ev.keyCode === 13 && inputSearch === document.activeElement) {
+/*
+function handleEnter(ev) {
+ /*     ev.preventDefault(); * /
+  if (ev.keyCode === 13/*  && inputSearch === document.activeElement * /) {
     inputFetch();
   }
 }
 
-inputSearch.addEventListener("keyUp", handleEnter); */
+inputSearch.addEventListener("submit", handleEnter);
+*/
