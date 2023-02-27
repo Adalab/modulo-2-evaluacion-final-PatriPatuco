@@ -38,7 +38,7 @@
           grid-column: 1 / 3;
           width: 9rem;
           border-radius: 1rem;
-          margin: 0.1rem 1rem 1rem 1rem;
+          margin: 0.7rem 1rem 1rem 1rem;
           border: solid 5px $color-blue;
         }
       }
@@ -52,6 +52,7 @@
       border-radius: 0.3rem;
       padding: 0.25rem 0.8rem;
       color: $color-sand;
+      cursor: pointer;
     }
   }
 
@@ -81,6 +82,7 @@
         margin-bottom: 2rem;
         text-align: center;
         border: solid 0.5px #f561303d;
+        cursor: pointer;
 
         &-name {
           font-family: $font-text;
@@ -99,6 +101,10 @@
       }
     }
   }
+}
+
+.fa-solid {
+  cursor: pointer;
 }
 
 // Selected cocktails

@@ -42,11 +42,13 @@
   &__search-button {
     background-color: $color-orange;
     border: 0.1rem $color-blue solid;
+    cursor: pointer;
   }
 
   &__reset-button{
     background-color: $color-blue;
     border: 0.1rem $color-orange solid;
+    cursor: pointer;
   }
 
   .buttons {

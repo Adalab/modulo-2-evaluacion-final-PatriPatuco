@@ -89,6 +89,7 @@ function handleClickIcon(e) {
   const selectedFav = cocktailsData.find(
     (cocktail) => cocktail.idDrink === iconSelected
   );
+
   const indexSelectedFav = favCoctailsData.findIndex(
     (cocktail) => cocktail.idDrink === iconSelected
   );
@@ -97,9 +98,7 @@ function handleClickIcon(e) {
     favCoctailsData.splice(indexSelectedFav, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
-    printFavList(
-      
-    );
+    printFavList(favCoctailsData);
     printList(cocktailsData);
   }
 }
