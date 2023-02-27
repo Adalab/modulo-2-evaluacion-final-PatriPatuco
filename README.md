@@ -4,7 +4,7 @@
 
 ¡Hola! Bienvenidas a mi repositorio donde podréis encontrar la página que he creado para la evaluación del módulo 2 en **Adalab**. 
 
-Puedes visitar el proyecto a través de este enlace: 
+Puedes visitar el proyecto a través de este enlace: http://beta.adalab.es/modulo-2-evaluacion-final-patricia-becerra/
 
 ## ¿En qué consiste?
 Si visitas la página, encontraras una web compuesta por:
