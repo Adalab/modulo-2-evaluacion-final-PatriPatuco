@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buscador de cócteles</title>
+    <!-- Google Fonts  -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dynalight&family=EB+Garamond:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a5f3fa4005.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+  </head>
+
+  <body>
+    <header class="header">
+        <h1 class="header__title">Cocktail Hunt</h1>
+        <h2 class="header__subtitle">Search your new drink of choice!</h2>
+
+        <form class="header__search js__search-form" action="">
+          <input type="text" class="header__search-input js__search-input" placeholder="Margarita">
+          <input type="button" class="header__search-button buttons js__search-button" value="Buscar">
+          <input type="button" class="header__reset-button buttons js__reset-button" value="Reset">
+        </form>
+
+    </header>
+
+    <main class="main">
+          <section class="main__fav">
+          <h2 class="main__fav-title">Favourites</h2>
+          <ul class="main__fav-list js__fav-list"></ul>
+          <input type="button" value="Delete List" class="hidden main__fav-delete-btn js__delete-btn-favs">
+          </section>
+
+          <section class="main__drinks">
+          <h2 class="main__drinks-title">Cocktails:</h2>
+          <ul class="main__drinks-list js__drinks-list"></ul>
+          </section>
+    </main>
+
+    <footer class="footer">
+      <small> &copy Todos los derechos reservados</small>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
