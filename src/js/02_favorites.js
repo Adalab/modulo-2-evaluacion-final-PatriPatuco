@@ -9,44 +9,49 @@
 
 function printFavList(favCoctailsData) {
   favList.innerHTML = "";
-  favBtn.classList.remove("hidden");
 
-  for (const drink of favCoctailsData) {
-    const liFavElement = document.createElement("li");
-    liFavElement.setAttribute("class", "main__fav-list--item js__drink");
-    liFavElement.setAttribute("id", drink.idDrink);
-    favList.appendChild(liFavElement);
-
-    const nameFavElement = document.createElement("h3");
-    const textFavName = document.createTextNode(drink.strDrink);
-    nameFavElement.appendChild(textFavName);
-    nameFavElement.setAttribute("class", "main__fav-list--item--name");
-    liFavElement.appendChild(nameFavElement);
-
-    // Add a placeholder image if the cocktail doesn't contain an image
-    if (drink.strDrinkThumb) {
-      const imgFavElement = document.createElement("img");
-      imgFavElement.setAttribute("class", "main__fav-list--item--img");
-      imgFavElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
-      liFavElement.appendChild(imgFavElement);
-    } else {
-      const imgFavElement = document.createElement("img");
-      liFavElement.setAttribute("class", "main__fav-list--item--img");
-      imgFavElement.setAttribute(
-        "src",
-        "https://via.placeholder.com/210x295/ffffff/666666/?text=TV"
-      );
-      liFavElement.appendChild(imgFavElement);
-    }
-
-    const removeFavElement = document.createElement("i");
-    removeFavElement.setAttribute(
-      "class",
-      "fa-solid fa-circle-xmark js__remove-fav"
-    );
-    removeFavElement.setAttribute("id", drink.idDrink);
-    liFavElement.appendChild(removeFavElement);
+  if (favCoctailsData.length === 0){
+    favBtn.classList.add("hidden");
+  } else {
+      favBtn.classList.remove("hidden");
   }
+
+    for (const drink of favCoctailsData) {
+      const liFavElement = document.createElement("li");
+      liFavElement.setAttribute("class", "main__fav-list--item js__drink");
+      liFavElement.setAttribute("id", drink.idDrink);
+      favList.appendChild(liFavElement);
+
+      const nameFavElement = document.createElement("h3");
+      const nameFavText = document.createTextNode(drink.strDrink);
+      nameFavElement.appendChild(nameFavText);
+      nameFavElement.setAttribute("class", "main__fav-list--item-name");
+      liFavElement.appendChild(nameFavElement);
+
+      const iconFavElement = document.createElement("i");
+      iconFavElement.setAttribute(
+        "class",
+        "fa-solid fa-circle-xmark js__remove-fav"
+      );
+      iconFavElement.setAttribute("id", drink.idDrink);
+      liFavElement.appendChild(iconFavElement);
+
+      // Add a placeholder image if the cocktail doesn't contain an image
+      if (drink.strDrinkThumb) {
+        const imgFavElement = document.createElement("img");
+        imgFavElement.setAttribute("class", "main__fav-list--item-img");
+        imgFavElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
+        liFavElement.appendChild(imgFavElement);
+      } else {
+        const imgFavElement = document.createElement("img");
+        liFavElement.setAttribute("class", "main__fav-list--item-img");
+        imgFavElement.setAttribute(
+          "src",
+          "https://via.placeholder.com/210x295/ffffff/666666/?text=TV"
+        );
+        liFavElement.appendChild(imgFavElement);
+      }
+    }
   favIconsEvent();
 }
 
@@ -92,19 +97,21 @@ function handleClickIcon(e) {
     favCoctailsData.splice(indexSelectedFav, 1);
     localStorage.setItem("cocktails", JSON.stringify(favCoctailsData));
     localDrink = JSON.parse(localStorage.getItem("cocktails"));
-    printFavList(favCoctailsData);
+    printFavList(
+      
+    );
     printList(cocktailsData);
   }
 }
 
-// Delete all the elements in "favCocatilsData" array and all the stored info ++ remove "selected" class in all the "cocktailsData" <li>
+// Delete all the elements in "favCocatilsData" array and all the stored info
 function handleFavBtn (ev) {
   ev.preventDefault();
   favCoctailsData = [];
   localDrink = localStorage.removeItem("cocktails");
   printFavList(favCoctailsData);
-  favBtn.classList.add("hidden");
 
+  // Remove "selected" class from "cocktailsData" array
   const drinksSelected = document.querySelectorAll(".js__drink");
   for (const drink of drinksSelected) drink.classList.remove("selected");
 }

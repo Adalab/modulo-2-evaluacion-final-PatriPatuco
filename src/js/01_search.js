@@ -17,16 +17,14 @@ function printList(cocktailsData) {
     const nameElement = document.createElement("h3");
     const textName = document.createTextNode(drink.strDrink);
     nameElement.appendChild(textName);
-    nameElement.setAttribute("class", "main__drinks-list--item--name");
+    nameElement.setAttribute("class", "main__drinks-list--item-name");
     liElement.appendChild(nameElement);
 
     // Add "selected" class to the drink element if id's match in favCoctailsData and drink element of cocktailsData
     const drinkId = drink.idDrink;
-    const favDrink = favCoctailsData.find(
-      (fav) => fav.idDrink === drinkId
-    );
+    const favDrink = favCoctailsData.find((fav) => fav.idDrink === drinkId);
 
-    if (favDrink) {
+    if (favDrink || favCoctailsData.lenght === 0) {
       liElement.classList.add("selected");
     } else {
       liElement.classList.remove("selected");
@@ -35,12 +33,12 @@ function printList(cocktailsData) {
     // Add a placeholder image if the cocktail doesn't contain an image
     if (drink.strDrinkThumb) {
       const imgElement = document.createElement("img");
-      imgElement.setAttribute("class", "main__drinks-list--item--img");
+      imgElement.setAttribute("class", "main__drinks-list--item-img");
       imgElement.setAttribute("src", `${drink.strDrinkThumb}/preview`);
       liElement.appendChild(imgElement);
     } else {
       const imgElement = document.createElement("img");
-      liElement.setAttribute("class", "main__drinks-list--item--img");
+      liElement.setAttribute("class", "main__drinks-list--item-img");
       imgElement.setAttribute(
         "src",
         "https://via.placeholder.com/210x295/ffffff/666666/?text=TV"
@@ -84,19 +82,23 @@ function inputFetch() {
     });
 }
 
-// Listen to click event and show list of cocktails
+// Listen to "submit" and "click" event and show list of cocktails
 function handleBtnSearch(ev) {
   ev.preventDefault();
-  inputFetch();
-}
-
-btnSearch.addEventListener("click", handleBtnSearch);
-
-/* function handleEnter(ev) {
-     ev.preventDefault();
-  if (ev.keyCode === 13 && inputSearch === document.activeElement) {
+  if (inputSearch.value) {
     inputFetch();
+  } else {
+    defaultFetch();
   }
 }
 
-inputSearch.addEventListener("keyUp", handleEnter); */
+// Clean the input and show the default list of margaritas
+function handleBtnReset(e) {
+  inputSearch.value = "";
+  e.preventDefault();
+  defaultFetch();
+}
+
+btnSearch.addEventListener("click", handleBtnSearch);
+formSearch.addEventListener("submit", handleBtnSearch);
+btnReset.addEventListener("click", handleBtnReset);

@@ -4,3 +4,19 @@
 @import 'layout/header';
 @import 'layout/cocktails';
 @import 'layout/footer';
+
+html {
+    background-color:$color-blue;
+    background: linear-gradient(180deg, $color-blue 0%, #055975 50%, #064b63 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 65vw;
+    background: linear-gradient(180deg, #faeacf 0%, $color-sand 35%, #d3bc94 100%);
+    margin: 3rem;
+    border-radius: 0.2rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.356);
+}
