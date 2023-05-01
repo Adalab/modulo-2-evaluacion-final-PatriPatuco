@@ -1,10 +1,10 @@
 ![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
 
-# Evaluación final módulo 1
+# Evaluación final módulo 2
 
 ¡Hola! Bienvenidas a mi repositorio donde podréis encontrar la página que he creado para la evaluación del módulo 2 en **Adalab**. 
 
-Puedes visitar el proyecto a través de este enlace: http://beta.adalab.es/modulo-2-evaluacion-final-patricia-becerra/
+Puedes visitar el proyecto a través de este enlace: http://patripatuco.github.io/cocktail-hunt/
 
 ## ¿En qué consiste?
 Si visitas la página, encontraras una web compuesta por:
